@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پایگاه خبری صدای کرج</title>
     <style>
-        :root { --primary: #c0392b; --dark: #1a252f; }
+        :root { --primary: #c0392b; --dark: #1a252f; --light: #f8f9fa; }
         body { font-family: Tahoma, Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; color: #333; line-height: 1.6; }
         header { background: var(--dark); color: white; padding: 15px 0; border-bottom: 4px solid var(--primary); }
         .header-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         .logo h1 { margin: 0; font-size: 24px; color: white; }
         .logo p { margin: 5px 0 0; font-size: 12px; color: #bdc3c7; }
-        nav { background: #2c3e50; }
-        nav .menu { max-width: 1100px; margin: 0 auto; display: flex; list-style: none; padding: 0; }
+        nav { background: #2c3e50; border-bottom: 1px solid #34495e; }
+        nav .menu { max-width: 1100px; margin: 0 auto; display: flex; list-style: none; padding: 0; margin-top: 0; margin-bottom: 0; }
         nav a { color: white; text-decoration: none; padding: 12px 20px; display: block; font-size: 14px; font-weight: bold; }
         nav a:hover { background: var(--primary); }
         .main-container { max-width: 1100px; margin: 20px auto; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 0 15px; }
         @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; } }
-        .sidebar-box { background: white; border-radius: 8px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .hero-news { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
+        .hero-news img { width: 100%; height: 300px; object-fit: cover; }
+        .hero-content { padding: 20px; }
+        .tag { background: var(--primary); color: white; padding: 3px 8px; font-size: 11px; border-radius: 3px; }
+        .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 500px) { .news-grid { grid-template-columns: 1fr; } }
+        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 140px; object-fit: cover; }
+        .card-content { padding: 12px; }
+        .card-content h3 { font-size: 14px; margin: 8px 0; }
+        .sidebar-box { background: white; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .sidebar-title { font-size: 16px; border-right: 4px solid var(--primary); padding-right: 10px; margin-top: 0; color: var(--dark); }
         .news-list { list-style: none; padding: 0; margin: 0; }
         .news-list li { border-bottom: 1px dashed #eee; padding: 10px 0; font-size: 13px; }
-        .news-list li a { color: #333; text-decoration: none; }
-        .news-list li a:hover { color: var(--primary); }
-        .loading { font-size: 12px; color: #777; }
+        .news-list li:last-child { border: none; }
         footer { background: var(--dark); color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 13px; }
     </style>
 </head>
@@ -39,53 +47,53 @@
     <nav>
         <ul class="menu">
             <li><a href="#">صفحه اصلی</a></li>
-            <li><a href="#">مقالات و تحلیل‌ها</a></li>
+            <li><a href="#">اخبار شهری</a></li>
+            <li><a href="#">اجتماعی</a></li>
+            <li><a href="#">اقتصاد و بازار</a></li>
             <li><a href="#">درباره ما</a></li>
         </ul>
     </nav>
     <div class="main-container">
         <main>
-            <div class="sidebar-box">
-                <h3 class="sidebar-title">جدیدترین مقالات (به‌روزرسانی خودکار)</h3>
-                <ul class="news-list" id="articles-list">
-                    <li class="loading">در حال دریافت جدیدترین مقالات...</li>
-                </ul>
+            <div class="hero-news">
+                <img src="https://picsum.photos/800/400?random=1" alt="خبر ویژه">
+                <div class="hero-content">
+                    <span class="tag">خبر ویژه</span>
+                    <h2>تکمیل پروژه‌های نیمه‌تمام شهری در اولویت شهرداری کرج</h2>
+                    <p>مدیریت شهری کرج از تخصیص اعتبارات جدید برای سرعت بخشیدن به پروژه‌های عمرانی و حمل‌ونقل عمومی خبر داد...</p>
+                </div>
+            </div>
+            <div class="news-grid">
+                <div class="card">
+                    <img src="https://picsum.photos/400/200?random=2" alt="خبر">
+                    <div class="card-content">
+                        <span class="tag">اجتماعی</span>
+                        <h3>پیش‌بینی وضعیت آب‌وهوای استان البرز در روزهای آینده</h3>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/400/200?random=3" alt="خبر">
+                    <div class="card-content">
+                        <span class="tag">شهری</span>
+                        <h3>بهسازی و آسفالت‌ریزی معابر اصلی منطقه ۱ کرج</h3>
+                    </div>
+                </div>
             </div>
         </main>
         <aside>
             <div class="sidebar-box">
-                <h3 class="sidebar-title">درباره این بخش</h3>
-                <p style="font-size: 13px; color: #666;">این بخش به‌صورت مستقیم و خودکار آخرین مقالات منتشر شده را دریافت کرده و با کلیک روی هر تیتر، متن کامل قابل مطالعه خواهد بود.</p>
+                <h3 class="sidebar-title">آخرین اخبار</h3>
+                <ul class="news-list">
+                    <li>🔹 بررسی وضعیت ترافیک اتوبان تهران - کرج</li>
+                    <li>🔹 افتتاح نمایشگاه صنایع دستی در کرج</li>
+                    <li>🔹 جدول زمان‌بندی قطار شهری کرج به‌روز شد</li>
+                    <li>🔹 برنامه‌های فرهنگی شهرداری برای آخر هفته</li>
+                </ul>
             </div>
         </aside>
     </div>
     <footer>
         <p>© تمامی حقوق برای پایگاه خبری «صدای کرج» محفوظ است.</p>
     </footer>
-
-    <script>
-        const rssUrl = 'https://www.mojahedin.org/rss';
-        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const listContainer = document.getElementById('articles-list');
-                listContainer.innerHTML = '';
-                
-                if (data.status === 'ok') {
-                    data.items.slice(0, 10).forEach(item => {
-                        const li = document.createElement('li');
-                        li.innerHTML = `📄 <a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`;
-                        listContainer.appendChild(li);
-                    });
-                } else {
-                    listContainer.innerHTML = '<li>خطا در دریافت مقالات.</li>';
-                }
-            })
-            .catch(() => {
-                document.getElementById('articles-list').innerHTML = '<li>امکان بارگذاری مقالات وجود ندارد.</li>';
-            });
-    </script>
 </body>
 </html>
