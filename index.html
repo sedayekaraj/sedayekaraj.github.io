@@ -1,99 +1,354 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پایگاه خبری صدای کرج</title>
-    <style>
-        :root { --primary: #c0392b; --dark: #1a252f; --light: #f8f9fa; }
-        body { font-family: Tahoma, Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        header { background: var(--dark); color: white; padding: 15px 0; border-bottom: 4px solid var(--primary); }
-        .header-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo h1 { margin: 0; font-size: 24px; color: white; }
-        .logo p { margin: 5px 0 0; font-size: 12px; color: #bdc3c7; }
-        nav { background: #2c3e50; border-bottom: 1px solid #34495e; }
-        nav .menu { max-width: 1100px; margin: 0 auto; display: flex; list-style: none; padding: 0; margin-top: 0; margin-bottom: 0; }
-        nav a { color: white; text-decoration: none; padding: 12px 20px; display: block; font-size: 14px; font-weight: bold; }
-        nav a:hover { background: var(--primary); }
-        .main-container { max-width: 1100px; margin: 20px auto; display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 0 15px; }
-        @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; } }
-        .hero-news { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 20px; }
-        .hero-news img { width: 100%; height: 300px; object-fit: cover; }
-        .hero-content { padding: 20px; }
-        .tag { background: var(--primary); color: white; padding: 3px 8px; font-size: 11px; border-radius: 3px; }
-        .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        @media (max-width: 500px) { .news-grid { grid-template-columns: 1fr; } }
-        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 140px; object-fit: cover; }
-        .card-content { padding: 12px; }
-        .card-content h3 { font-size: 14px; margin: 8px 0; }
-        .sidebar-box { background: white; border-radius: 8px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .sidebar-title { font-size: 16px; border-right: 4px solid var(--primary); padding-right: 10px; margin-top: 0; color: var(--dark); }
-        .news-list { list-style: none; padding: 0; margin: 0; }
-        .news-list li { border-bottom: 1px dashed #eee; padding: 10px 0; font-size: 13px; }
-        .news-list li:last-child { border: none; }
-        footer { background: var(--dark); color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 13px; }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <h1>پایگاه خبری صدای کرج</h1>
-                <p>پایگاه رسمی انعکاس اخبار و مطالبات استان البرز</p>
-            </div>
-        </div>
-    </header>
-    <nav>
-        <ul class="menu">
-            <li><a href="#">صفحه اصلی</a></li>
-            <li><a href="#">اخبار شهری</a></li>
-            <li><a href="#">اجتماعی</a></li>
-            <li><a href="#">اقتصاد و بازار</a></li>
-            <li><a href="#">درباره ما</a></li>
-        </ul>
-    </nav>
-    <div class="main-container">
-        <main>
-            <div class="hero-news">
-                <img src="https://picsum.photos/800/400?random=1" alt="خبر ویژه">
-                <div class="hero-content">
-                    <span class="tag">خبر ویژه</span>
-                    <h2>تکمیل پروژه‌های نیمه‌تمام شهری در اولویت شهرداری کرج</h2>
-                    <p>مدیریت شهری کرج از تخصیص اعتبارات جدید برای سرعت بخشیدن به پروژه‌های عمرانی و حمل‌ونقل عمومی خبر داد...</p>
-                </div>
-            </div>
-            <div class="news-grid">
-                <div class="card">
-                    <img src="https://picsum.photos/400/200?random=2" alt="خبر">
-                    <div class="card-content">
-                        <span class="tag">اجتماعی</span>
-                        <h3>پیش‌بینی وضعیت آب‌وهوای استان البرز در روزهای آینده</h3>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://picsum.photos/400/200?random=3" alt="خبر">
-                    <div class="card-content">
-                        <span class="tag">شهری</span>
-                        <h3>بهسازی و آسفالت‌ریزی معابر اصلی منطقه ۱ کرج</h3>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <aside>
-            <div class="sidebar-box">
-                <h3 class="sidebar-title">آخرین اخبار</h3>
-                <ul class="news-list">
-                    <li>🔹 بررسی وضعیت ترافیک اتوبان تهران - کرج</li>
-                    <li>🔹 افتتاح نمایشگاه صنایع دستی در کرج</li>
-                    <li>🔹 جدول زمان‌بندی قطار شهری کرج به‌روز شد</li>
-                    <li>🔹 برنامه‌های فرهنگی شهرداری برای آخر هفته</li>
-                </ul>
-            </div>
-        </aside>
-    </div>
-    <footer>
-        <p>© تمامی حقوق برای پایگاه خبری «صدای کرج» محفوظ است.</p>
-    </footer>
-</body>
-</html>
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>پایگاه خبری صدای کرج</title><meta name="description" content="پایگاه خبری صدای کرج و آرشیو پست‌های اینستاگرام @seday.ekaraj"><style>*{box-sizing:border-box}body{margin:0;background:#f1f3f6;color:#17202b;font-family:Tahoma,Arial,sans-serif;direction:rtl}.container{max-width:1180px;margin:auto;padding:0 18px}header{background:#172531;color:#fff;border-bottom:4px solid #d63b35}.brand{padding:28px 0 18px}.brand h1{margin:0;font-size:25px}.brand p{margin:8px 0 0;color:#d7e0e7;font-size:13px}.nav{display:flex;gap:8px;flex-wrap:wrap;padding:0 0 15px}.nav a{color:#fff;text-decoration:none;padding:9px 15px;border:1px solid #426071;border-radius:4px;font-size:13px}.nav a:hover{background:#d63b35}.hero{margin:25px 0;background:white;border-radius:10px;padding:24px;box-shadow:0 2px 10px #17253115}.hero h2{margin:0 0 8px;font-size:22px}.hero p{margin:0;color:#596773}.layout{display:grid;grid-template-columns:1fr 290px;gap:24px;direction:ltr}.main,.side{direction:rtl}.feed-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 16px}.feed-title h2{margin:0;font-size:20px}.count{color:#d63b35;font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 2px 10px #17253112;display:flex;flex-direction:column}.thumb{width:100%;aspect-ratio:16/10;object-fit:cover;background:#dfe5e8}.cardbody{padding:16px}.meta{font-size:11px;color:#d63b35;margin-bottom:8px}.card h3{font-size:16px;line-height:1.7;margin:0 0 9px}.card p{font-size:13px;line-height:1.9;color:#58646d;margin:0 0 13px;white-space:pre-line}.more{display:inline-block;color:#d63b35;text-decoration:none;font-size:12px}.sidebox{background:#fff;border-radius:9px;padding:18px;box-shadow:0 2px 10px #17253112;position:sticky;top:16px}.sidebox h3{border-right:4px solid #d63b35;padding-right:9px;margin:0 0 13px;font-size:17px}.sidebox ul{padding:0 18px 0 0;margin:0}.sidebox li{margin:0 0 12px;font-size:13px;line-height:1.7}.sidebox a{color:#273c4b;text-decoration:none}footer{margin-top:34px;padding:25px 0;background:#172531;color:#d7e0e7;text-align:center;font-size:12px}@media(max-width:800px){.layout{display:block}.side{margin-top:20px}.sidebox{position:static}.grid{grid-template-columns:1fr}}@media(max-width:470px){.container{padding:0 12px}.brand h1{font-size:20px}.grid{gap:12px}.cardbody{padding:12px}.card h3{font-size:14px}}</style></head><body><header><div class="container"><div class="brand"><h1>پایگاه خبری صدای کرج</h1><p>پایگاه رسمی انعکاس اخبار و مطالبات استان البرز</p></div><nav class="nav"><a href="#top">صفحه اصلی</a><a href="#feed">فید اینستاگرام</a><a href="#about">درباره ما</a><a href="https://www.instagram.com/seday.ekaraj/" target="_blank" rel="noopener">اینستاگرام</a></nav></div></header><main class="container" id="top"><section class="hero"><h2>آخرین اخبار و مطالبات مردم کرج</h2><p>آرشیو محلی پست‌های صفحهٔ رسمی <bdi>@seday.ekaraj</bdi>؛ این محتوا حتی در صورت اختلال اینستاگرام نیز در سایت باقی می‌ماند.</p></section><div class="layout"><section class="main" id="feed"><div class="feed-title"><h2>آرشیو پست‌های اینستاگرام</h2><span class="count">47 پست ذخیره‌شده</span></div><div class="grid"><article class="card"><img class="thumb" loading="lazy" src="assets/18171677230443234.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-31</div><h3>
+Be the first to 
+.
+بر اساس اعلام سنتکام، نیروهای ۳ پااه پاس/داران در حال آماده‌سازی برای…</h3><p>
+Be the first to 
+.
+بر اساس اعلام سنتکام، نیروهای ۳ پااه پاس/داران در حال آماده‌سازی برای مین‌گذاری و ایجاد تهدید علیه کشتیرانی در تنگه_هرمز بودند و به‌همین دلیل نیروهای آمریکایی مواضع و تجهیزات مرتبط با این عملیات را هدف قرار دادند.
+اما سوال این است که چرا مین‌گذاری؟
+هدف…</p><a class="more" href="https://www.instagram.com/reel/Dct571IKaPO/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18019371092866587.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-31</div><h3>
+مدیران د**زد کرج
+
+زمین‌خواری ۳ هزار میلیاردی در نظرآباد - برابر با اختلاس خاوری!
+
+بر…</h3><p>
+مدیران د**زد کرج
+
+زمین‌خواری ۳ هزار میلیاردی در نظرآباد - برابر با اختلاس خاوری!
+
+بر اساس گزارش رسمی، ارزش این زمین‌خواری ۳ هزار میلیارد تومان تخمین زده شده که با میزان اختلاس محمودرضا خاوری برابری می‌کند.
+
+جزئیات پرونده چیست؟
+رسیدگی به پرونده با ابلاغ ویژه رئیس قوه قضاییه آغاز…</p><a class="more" href="https://www.instagram.com/reel/DctaphdKtPB/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18149483356525647.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-31</div><h3>
+اطلاعات تازه منتشرشده از زندان مرکزی کرج از شرایط دشوار نگهداری زندانیان، تراکم شدید…</h3><p>
+اطلاعات تازه منتشرشده از زندان مرکزی کرج از شرایط دشوار نگهداری زندانیان، تراکم شدید جمعیت، نظارت تصویری در فضاهای خصوصی و مشکلات گسترده در برخی سالن‌ها خبر می‌دهد.
+بر اساس این گزارش، حتی در سرویس‌های بهداشتی زندان دوربین نصب شده است؛ موضوعی که نگرانی جدی درباره حریم خصوصی…</p><a class="more" href="https://www.instagram.com/reel/Dcsrqr6KAwM/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17903152749478201.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-31</div><h3>
+#فوری آمریکا اهداف موشکی ۳ پا را در جزیره لارک زد
+.
+.
+.
+#لارک</h3><p>
+#فوری آمریکا اهداف موشکی ۳ پا را در جزیره لارک زد
+.
+.
+.
+#لارک</p><a class="more" href="https://www.instagram.com/reel/DcsXOPuK25F/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18063164375781317.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-29</div><h3>
+عنوان: 🚨 افتتاحیه‌های قطره‌چکانی در کرج؛ پروژه پل B1 کی تمام می‌شود؟
+
+سال‌هاست مردم…</h3><p>
+عنوان: 🚨 افتتاحیه‌های قطره‌چکانی در کرج؛ پروژه پل B1 کی تمام می‌شود؟
+
+سال‌هاست مردم البرز تاوان ترافیک خردکننده آزادراه کرج-قزوین را می‌دهند، اما سهم مردم از پروژه‌ای که بودجه‌های کلان شهری و ملی را بلعیده، چیزی جز افتتاحیه‌های تکه‌تکه و مانورهای تبلیغاتی نبوده است!
+
+پروژه…</p><a class="more" href="https://www.instagram.com/reel/DcohHe0KNGz/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17900808309352152.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-29</div><h3>
+رئیس‌جمهورِ کارآمد کسی است که تضاد میان کمبود انرژی، هزینه‌های سنگین دولت و ناکارآمدی…</h3><p>
+رئیس‌جمهورِ کارآمد کسی است که تضاد میان کمبود انرژی، هزینه‌های سنگین دولت و ناکارآمدی اداری را با برنامه و تصمیم حل کند، نه اینکه خودِ تضاد را به شکل «داریم فکر می‌کنیم» دوباره به مردم تحویل بدهد.
+نسخه کوتاه‌تر و تندتر:
+وقتی رئیس‌جمهور به‌جای حل تضادها فقط از فکرکردن درباره…</p><a class="more" href="https://www.instagram.com/reel/DcnyNceqmh8/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18101742556984208.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-28</div><h3>
+هشدار درباره آبخوان‌های البرز
+
+مدیرعامل شرکت آب منطقه‌ای البرز اعلام کرده است که برداشت…</h3><p>
+هشدار درباره آبخوان‌های البرز
+
+مدیرعامل شرکت آب منطقه‌ای البرز اعلام کرده است که برداشت از منابع آب زیرزمینی استان به حدی رسیده که طی سال‌های اخیر، حدود ۱.۵ میلیارد مترمکعب آب از نسل‌های آینده وام گرفته شده است.
+
+او همچنین گفته سطح آب‌های زیرزمینی البرز سالانه حدود ۸۰ سانتی‌متر…</p><a class="more" href="https://www.instagram.com/reel/DcmNnVyqNPY/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17929585986395453.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-28</div><h3>
+⚡ وزیر نیرو: هرکسی می‌خواهد برقش قطع نشه، از بورس برق با قیمت آزاد بخرد!
+
+🔻 یعنی برق هم…</h3><p>
+⚡ وزیر نیرو: هرکسی می‌خواهد برقش قطع نشه، از بورس برق با قیمت آزاد بخرد!
+
+🔻 یعنی برق هم رسماً به یک کالای لوکس تبدیل شد!
+اگر تا دیروز پول قبض برق را می‌دادیم، حالا باید باج بدهیم تا اصلاً حق داشتن برق را داشته باشیم!
+
+داریم به سمتی پیش می‌رویم که «زندگی با برق» مختص قشر مرفه…</p><a class="more" href="https://www.instagram.com/reel/DckuJazKdiv/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17983944678103683.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-27</div><h3>
+صادق الحسینی، مشاور و تئوریسین اقتصادی ارشد دولت پزشکیان:
+افزایش قیمت‌ها باید ناگهانی و…</h3><p>
+صادق الحسینی، مشاور و تئوریسین اقتصادی ارشد دولت پزشکیان:
+افزایش قیمت‌ها باید ناگهانی و همراه با شو‌ک‌درمانی باشد نه تدریجی.
+شوک‌درمانی و افزایش یک‌شبه و چند ده برابری قیمت‌ها، اقتصاد چین و آلمان را نجات داد.
+شوک‌درمانی کردند و افراد زیادی را در پکن کشتند تا بالاخره موفق…</p><a class="more" href="https://www.instagram.com/reel/Dci89JoKWOO/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18109508513031184.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-27</div><h3>
+بنزین یا آب؟
+رفسنجان
+
+«۲۰ لیتر بنزین زدم؛ ۵ لیترش فقط بنزین بود و ۱۵ لیتر آب! الان ماشین…</h3><p>
+بنزین یا آب؟
+رفسنجان
+
+«۲۰ لیتر بنزین زدم؛ ۵ لیترش فقط بنزین بود و ۱۵ لیتر آب! الان ماشین ما از کار افتاده. یکی رو بیارید حداقل باک ما رو خالی کنه تا یه خاکی به سرمون بریزیم. امروز از کار افتادیم و بیکار شدیم.»
+پس از کشیدن سوخت از باک، آب زیادی از آن خارج شده و خودرو نیز خاموش…</p><a class="more" href="https://www.instagram.com/reel/Dch_LLRKaBH/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17977649901087777.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-26</div><h3>
+ اسکات بسنت وزیر خزانه‌داری آمریکا طبق قراری که از هفته گذشته وعده داده بود، آغاز…</h3><p>
+ اسکات بسنت وزیر خزانه‌داری آمریکا طبق قراری که از هفته گذشته وعده داده بود، آغاز سنگین‌ترین تحریم‌های تاریخ علیه رژیم ایران را اعلام کرد و گفت
+- هر شرکتی که برای ایران پولشویی کند از سیستم دلار آمریکا حذف خواهد شد
+- از امروز، فشار را تشدید می‌کنیم و هر منبع درآمد احتمالی را که…</p><a class="more" href="https://www.instagram.com/reel/DchAJC1q_e8/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17912956386451748.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-26</div><h3>
+جزئیات و ابعاد بحران در البرز
+شهرک صنعتی اشتهارد (بزرگ‌ترین شهرک صنعتی خاورمیانه): قطع…</h3><p>
+جزئیات و ابعاد بحران در البرز
+شهرک صنعتی اشتهارد (بزرگ‌ترین شهرک صنعتی خاورمیانه): قطع برنامه‌ریزی‌شده یا ناگهانی برق بین ۶ تا ۱۲ ساعت در هفته (و در اوج تابستان، قطعی‌های ۲ روز در هفته) باعث تعطیلی خطوط تولید، خرابی دستگاه‌های گران‌قیمت صنعتی و زیان‌های سنگین مالی به صاحبان…</p><a class="more" href="https://www.instagram.com/reel/Dcgb-ayKTKm/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17950358826039384.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-26</div><h3>
+
+روایت یک زن زندانی از زندان فردیس کرج؛ آزار جنسی و نقض حقوق زندانیان
+یک زن زندانی در…</h3><p>
+
+روایت یک زن زندانی از زندان فردیس کرج؛ آزار جنسی و نقض حقوق زندانیان
+یک زن زندانی در روایتی مستقیم از زندان فردیس کرج، از آزار کلامی جنسی توسط دو مأمور هنگام انتقال خبر داده است؛ رفتاری که به گفته او، آن‌قدر شدید بوده که در خودرو را باز کرده و قصد داشته خود را بیرون بیندازد.…</p><a class="more" href="https://www.instagram.com/reel/DcfYbpWqNoq/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18112391489095905.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-25</div><h3>
+«فکر می‌کردید شرکت‌های صوری و اختلاس‌های هزار میلیاردی فقط تو فیلم‌هاست؟! تو همین کرج…</h3><p>
+«فکر می‌کردید شرکت‌های صوری و اختلاس‌های هزار میلیاردی فقط تو فیلم‌هاست؟! تو همین کرج خودمون، ۱۰ هزار میلیارد تومان از جیب من و تو غیب شده!»
+«مدیرکل مالیاتی البرز خبر داده ۹۲ تا شرکت کاغذی کشف شده! می‌دونی یعنی چی؟ یعنی رفتن کارت ملی آدم‌های بی‌خبر و کم‌بضاعت رو اجاره کردن،…</p><a class="more" href="https://www.instagram.com/reel/DceTDdwKmcI/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17923494282185381.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-25</div><h3>
+علیرضا رحیمی محمود ابادی ۶۰
+ متر از عرشه پل در ارتفاع ۱۷۰ متری، بدون کابل اصلی رو هوا…</h3><p>
+علیرضا رحیمی محمود ابادی ۶۰
+ متر از عرشه پل در ارتفاع ۱۷۰ متری، بدون کابل اصلی رو هوا رها شده! تحویل این پروژه یعنی بازی با جان مردم!»
+«اگر این پل با همین وضعیت افتتاح بشه، جرات می‌کنید از روش رد بشید؟ برامون بنویسید👇»
+-------------
+#پل_b1 
+#کرج 
+#پلb1 
+#صدای_کرج 
+#البرز_کرج</p><a class="more" href="https://www.instagram.com/reel/DcdmJFFqxGx/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18081705404323193.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-24</div><h3>«۱,۳۰۰ میلیارد تومان چک برگشتی بعد از ۳۰ سال روی میز شورای شهر کرج آمد!
+
+شهرداری کرج ۱۶۸۳…</h3><p>«۱,۳۰۰ میلیارد تومان چک برگشتی بعد از ۳۰ سال روی میز شورای شهر کرج آمد!
+
+شهرداری کرج ۱۶۸۳ فقره چک وصول‌نشده دارد که بعضی‌هایشان ۳ دهه است خاک می‌خورند!
+
+اگر نرخ تورم این ۳۰ سال حساب بشه، بدهی به چند هزار میلیارد می‌رسه!
+
+چرا بعد از این همه سال کسی دنبال وصول این مطالبات نرفته…</p><a class="more" href="https://www.instagram.com/reel/DcaV5FQtChG/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18126617353817712.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-24</div><h3>
+خبرگزاری حکومتی میزان، وابسته به قوه قضائیه رژیم ت‌**روریستی ملایان، از اجرای حکم…</h3><p>
+خبرگزاری حکومتی میزان، وابسته به قوه قضائیه رژیم ت‌**روریستی ملایان، از اجرای حکم اعد***ام مجید آدینه، از بازداشت‌شدگان اعتراضات دی‌ماه ۲۷۰۴ ایرانی در محمدشهر کرج، خبر داد. 
+
+بر اساس روایت رسمی قوه قضائیه رژیم ایران، آدینه شامگاه ۱۹ دی‌ماه توسط سازمان اطلاعات س‌پاه ت‌روریستی…</p><a class="more" href="https://www.instagram.com/reel/DcaL8pqqkN2/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18611998675061440.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-23</div><h3>🚨 پشت پرده قطعی‌های پی‌درپی گاز در البرز افشا شد!
+
+مسئولان استانی مدام آدرس غلط می‌دهند و…</h3><p>🚨 پشت پرده قطعی‌های پی‌درپی گاز در البرز افشا شد!
+
+مسئولان استانی مدام آدرس غلط می‌دهند و علت قطعی‌های مداوم گاز در محلات کرج و فردیس را «توسعه شبکه» یا «تعمیرات دوره‌ای» اعلام می‌کنند. اما آمارهای رسمی مسئولان بالادستی، داستان کاملاً متفاوتی را روایت می‌کند!
+
+ اعتراف صریح وزارت…</p><a class="more" href="https://www.instagram.com/reel/DcY3EzqNJV8/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18132566731616926.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-23</div><h3>
+نه برق داریم، نه آب درست‌وحسابی، نه هوایی که بشه تنفس کرد؛ اون‌وقت اسمش رو می‌ذارن…</h3><p>
+نه برق داریم، نه آب درست‌وحسابی، نه هوایی که بشه تنفس کرد؛ اون‌وقت اسمش رو می‌ذارن «مدیریت اضطراری»! تاوان ناکارآمدی کل سیستم رو چرا باید ریه و معیشت مردم بده؟
+----------------
+.
+.
+.
+#قطعی_برق 
+#قطعی_آب 
+#بحران_انرژی 
+#کرج 
+#تعطیلی_ادارات</p><a class="more" href="https://www.instagram.com/reel/DcX_hfNKTsH/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17988660282020083.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-22</div><h3>بحران آب و برق در کرج
+تاوان ناکارآمدی حکومت
+ بر دوش مردم!
+قطع ناگهانی برق و افت شدید فشار…</h3><p>بحران آب و برق در کرج
+تاوان ناکارآمدی حکومت
+ بر دوش مردم!
+قطع ناگهانی برق و افت شدید فشار آب، چند منطقه کرج (فردیس، مهرشهر، شاهین‌ویلا، حیدرآباد و محلات مرتفع) را در بحران فرو برده است.
+از کار افتادن پمپ‌های خانگی در کنار قطعی بی‌برنامه انرژی، کلافگی و مشکلات معیشتی شدیدی برای…</p><a class="more" href="https://www.instagram.com/reel/DcWouRqqfdV/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18081635681311684.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-22</div><h3>
+مقاومت، نام کوچک آنانی است که در برابر ظلم سر خم نکردند.
+
+شهید راه آزادی، رامین…</h3><p>
+مقاومت، نام کوچک آنانی است که در برابر ظلم سر خم نکردند.
+
+شهید راه آزادی، رامین اسدی‌فرد، اسوه شجاعتی بی‌مانند. او در دی‌ماه ۱۴۰۴، کرج را به میدان درخشش انسانیت تبدیل کرد. با وجود جراحات سنگین ناشی از شلیک مستقیم و ضربات سرکوبگران، ۱۲ بار به خط مقدم ایثار بازگشت تا جان مجروحان…</p><a class="more" href="https://www.instagram.com/reel/DcWKPgIKeXl/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18066782996566396.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-22</div><h3>
+ازدحام بی‌سابقه در زندان قزلحصار؛ افزایش جمعیت یک سوئیت به بیش از ۲۰۰ زندانی
+کانون حقوق…</h3><p>
+ازدحام بی‌سابقه در زندان قزلحصار؛ افزایش جمعیت یک سوئیت به بیش از ۲۰۰ زندانی
+کانون حقوق بشر ایران، جمعه ۳۰ مردادماه ۱۴۰۵ - گزارش‌های رسیده از زندان قزلحصار نشان می‌دهد که از نیمه فروردین‌ماه ۱۴۰۵، انتقال بازداشت‌شدگان جدید به یکی از سوئیت‌های بسته این زندان شدت گرفته و جمعیت…</p><a class="more" href="https://www.instagram.com/reel/DcVG7EjqmlD/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17886478260452909.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-21</div><h3>بحران آب و برق با ژست‌های نمادین حل نمی‌شود؛ با برنامه، شفافیت، مسئولیت‌پذیری و گزارش…</h3><p>بحران آب و برق با ژست‌های نمادین حل نمی‌شود؛ با برنامه، شفافیت، مسئولیت‌پذیری و گزارش قابل‌سنجش حل می‌شود.
+#پزشکیان #بحران_آب #بحران_برق #صرفه_جویی #صدای_کرج</p><a class="more" href="https://www.instagram.com/reel/DcSyddJNW2K/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18123350311856338.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-21</div><h3>
+
+سطح آی‌کیو نیروهای امنیتی در همین یک کلیپ خلاصه‌ست! 😂
+
+میگه: &quot;نه به جایی وصلم نه چیزی،…</h3><p>
+
+سطح آی‌کیو نیروهای امنیتی در همین یک کلیپ خلاصه‌ست! 😂
+
+میگه: &quot;نه به جایی وصلم نه چیزی، من یه شهروند عادی‌ام&quot;
+تیپ و قیافه و دیالوگ‌ها کاملا مشخصه از کجاست!
+
+خبرنگار فقط یه جمله میگه: &quot;امنیتی‌ها از استایل شبیه شما موضع میگیرن&quot;
+برمیگرده با افتخار میگه: &quot;دقیقا!&quot; 🤦‍♀️
+
+خودش با دست…</p><a class="more" href="https://www.instagram.com/reel/DcSsI1OqpOd/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17951913255257496.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-20</div><h3>
+
+چه کسی مسئول این همه حادثه و قربانی است؟
+
+هر بار که تصادفی رخ می‌دهد، انگار همه‌چیز به…</h3><p>
+
+چه کسی مسئول این همه حادثه و قربانی است؟
+
+هر بار که تصادفی رخ می‌دهد، انگار همه‌چیز به «بی‌احتیاطی راننده» خلاصه می‌شود؛
+اما کسی نمی‌پرسد چرا جاده ناامن است؟
+چرا خیابان استاندارد نیست؟
+چرا نظارت درست انجام نمی‌شود؟
+چرا سال‌هاست مشکلات زیرساختی حل نمی‌شوند؟
+و چرا وقتی جان مردم…</p><a class="more" href="https://www.instagram.com/reel/DcRVLibK8hH/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18110049989107234.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-20</div><h3>
+برخورد تراز با عرزشی‌ای که مزاحم یه دختر میشه!
+انداختنش تو سطل زباله‼️
+توی تبریز کسبه و…</h3><p>
+برخورد تراز با عرزشی‌ای که مزاحم یه دختر میشه!
+انداختنش تو سطل زباله‼️
+توی تبریز کسبه و مردم وقتی میبینن یه نفر که احتمالا به حجاب اختیاری این دختر گیر داده و مزاحمت ایجاد میکنه میریزن روش اول سیر ک**تکش میزنن بعدشم میندازنش تو سطل زیاله.
+--------------
+شما اونجا بودید چکار…</p><a class="more" href="https://www.instagram.com/reel/DcQsVZSq5aG/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17945402856054503.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-19</div><h3>تاریخ، نام زندان و رفتار زندانبان را هرگز فراموش نمی‌کند.
+
+این رفتارها در هر کجای جهان…</h3><p>تاریخ، نام زندان و رفتار زندانبان را هرگز فراموش نمی‌کند.
+
+این رفتارها در هر کجای جهان محکوم شده و در نهایت گریبان خود عاملان را گرفته است:
+
+۱. هوهنشونهاوزن (آلمان شرقی): شــ...کنجه سفید و محرومیت درمانی. امروز موزه عبرت است و بازجویانش محاکمه و محکوم شدند.
+۲. ابوغریب (عراق):…</p><a class="more" href="https://www.instagram.com/reel/DcO0uMhtqfy/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18122392639780898.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-19</div><h3>
+
+ادعای عبدالملکی:
+به عنوان عضو تیم اقتصادی دولت رئیسی میگویم گرانیها یک درصد هم به…</h3><p>
+
+ادعای عبدالملکی:
+به عنوان عضو تیم اقتصادی دولت رئیسی میگویم گرانیها یک درصد هم به جـــ..نگ مربوط نیست
+اگر گرانیها ربطی به جنـــ...گ نداره پس مربوط به چیست؟
+-------------------
+عبدالملکی: گرانی یک درصد هم به جن*گ ربط ندارد!
+
+آقای عضو تیم اقتصادی دولت رئیسی، اگر به جن*گ ربط…</p><a class="more" href="https://www.instagram.com/reel/DcNVi9PKWCo/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18119605243893562.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-18</div><h3>حسن جهان آرا برادر محمد جهان‌آرا که پاسداران برایش سرود «ممد نبودی...» را ساختند سال ۶۰…</h3><p>حسن جهان آرا برادر محمد جهان‌آرا که پاسداران برایش سرود «ممد نبودی...» را ساختند سال ۶۰ دستگیر و به ۱۵سال زندان محکوم شد. گاهی اوقات وقتی بلندگوی بند ترانه ممد نبودی را پخش میکرد پاسداران میریختن تو سلول و حسن را زیر مشت و لگد میکوبیدند و میگفتن برادرت قهرمان خرمشهر بود و تو شدی…</p><a class="more" href="https://www.instagram.com/reel/DcMXhEKtF0b/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18390411406162280.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-18</div><h3>
+
+شنیدید ماجرای سه #خلبان گمشده در #قطر چیه؟
+
+داستان تاریک‌تر از چیزیه که فکر…</h3><p>
+
+شنیدید ماجرای سه #خلبان گمشده در #قطر چیه؟
+
+داستان تاریک‌تر از چیزیه که فکر می‌کنید!
+میگن بعد حمله آمریکا، #رژیم و آمریکا برای حفظ آبرو با هم #توافق کردن که رژیم یه حمله نمایشی و کنترل‌شده به پایگاه #العدید بکنه.
+
+حتی به آمریکا زنگ زدن گفتن پایگاه رو خالی کنید تا کسی کشته…</p><a class="more" href="https://www.instagram.com/reel/DcMGmKxqkO5/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18125122807795989.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-18</div><h3>
+
+#فوری رئیس شورای شهر تهران چمران:
+🔹برای خامنه‌ای پیشنهاد دادیم یکی فرودگاه #مهرآباد به…</h3><p>
+
+#فوری رئیس شورای شهر تهران چمران:
+🔹برای خامنه‌ای پیشنهاد دادیم یکی فرودگاه #مهرآباد به نام ایشان نامیده شود 
+---------------------
+#کرجیها #خبرفوری_ایران 
+#خبرانلاین #اخبار_کرج</p><a class="more" href="https://www.instagram.com/reel/DcLlCaJqQLt/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18024550910856750.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-18</div><h3>
+رئیس کل دادگستری البرز از آغاز تخریب دیوارهای زندان سابق رجایی‌شهر خبر داد.
+به گفته او،…</h3><p>
+رئیس کل دادگستری البرز از آغاز تخریب دیوارهای زندان سابق رجایی‌شهر خبر داد.
+به گفته او، پس از دستور رئیس قوه قضاییه برای تسریع مصوبات سفر استانی به البرز و تخلیه و تعطیلی زندان، دیوارهای پیرامونی همچنان باقی مانده بود و مطالبه جدی مردم بود.
+-------------------
+خراب کردن دیوار…</p><a class="more" href="https://www.instagram.com/reel/DcK4eJ-Kf_S/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18623623453048794.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-17</div><h3>بحران بهداشتی در بند یک زندان فردیس کرج؛ فاضلاب در هواخوری بالا زده و در گرمای تابستان…</h3><p>بحران بهداشتی در بند یک زندان فردیس کرج؛ فاضلاب در هواخوری بالا زده و در گرمای تابستان باعث بوی شدید، آلودگی و ازدحام حشرات شده و استفاده از هواخوری را برای زنان زندانی غیرممکن کرده است.
+همزمان موجی از اسهال و استفراغ در بند شایع شده و هیچ رسیدگی پزشکی مؤثری وجود ندارد. مسئولان…</p><a class="more" href="https://www.instagram.com/reel/DcJPuf7tVqG/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18126994108674342.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-17</div><h3>
+سقاب اصفهانی، معاون پزشکیان و رئیس سازمان بهینه‌سازی انرژی از رسیدن بنزین به «نقطه…</h3><p>
+سقاب اصفهانی، معاون پزشکیان و رئیس سازمان بهینه‌سازی انرژی از رسیدن بنزین به «نقطه اجباری» و تصمیم‌گیری دولت درباره توزیع و قیمت‌گذاری در ۱۰ تا ۱۵ روز آینده خبر داد.
+
+او ۲۴ مرداد ۱۴۰۵ گفت: مصرف روزانه ۱۳۵ میلیون لیتر و تولید ۱۲۱ میلیون لیتر است و کشور با کسری روزانه ۱۴ تا ۱۵…</p><a class="more" href="https://www.instagram.com/reel/DcI2L3eqz_d/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17924486373407149.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-17</div><h3>
+ورود ناگهانی لکه‌های سنگین نفتی به قشم، ۳۲ هزار مترمربع از سواحل را آلوده کرد؛ این حادثه…</h3><p>
+ورود ناگهانی لکه‌های سنگین نفتی به قشم، ۳۲ هزار مترمربع از سواحل را آلوده کرد؛ این حادثه ساده دریایی نبود.
+ریشه این فاجعه در تخلیه عمدی محموله‌های نفتی بخاطر پرشدن مخازن ذخیره سازی دراثر #محاصره دریایی است
+رژیم دربین گزینه های موجود، رهاسازی #نفت درپهنه دریا را انتخاب کرد تا با…</p><a class="more" href="https://www.instagram.com/reel/DcIJvNEKCvz/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18098493731524570.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-16</div><h3>پزشکیان امروز یک ساعت روضه خوند تا بگه تورم ۳رقمی و ۸۰درصد زیر خط فقر و خلاصه این گرونی…</h3><p>پزشکیان امروز یک ساعت روضه خوند تا بگه تورم ۳رقمی و ۸۰درصد زیر خط فقر و خلاصه این گرونی طبیعیه...
+حالا چرا طبیعیه؟ برای این که چرخ نظام باید بچرخه و برای چرخیدن از جیب و سفره‌های مردم هزینه کرد
+-----------------
+.
+.
+.
+#پزشکیان 
+#گرانی 
+#گرانی_بنزین 
+#بنزین_گران_شد…</p><a class="more" href="https://www.instagram.com/reel/DcHRnelKXgx/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18068928896720891.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-16</div><h3>
+
+#شهرام_صادقی از معترضان #قیام_دی امروز با فرمان مجتبی خامنه‌ای #اعد*ام شد.
+
+می‌گویند او…</h3><p>
+
+#شهرام_صادقی از معترضان #قیام_دی امروز با فرمان مجتبی خامنه‌ای #اعد*ام شد.
+
+می‌گویند او برای ان*ت*قام خو*ن لاله‌های سرخ #کرج، با خودروی پراید خود ۷ مأمور انتظامی را در گلزار شهدای کرج زیر گرفت.
+
+در بازجویی، خبرنگار-بازجو از او می‌پرسد: «می‌دانستی با این سرعت که به مأموران…</p><a class="more" href="https://www.instagram.com/reel/DcGnvGzq8FV/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17909723775452472.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-15</div><h3>
+شهید راه آزادی #محسن_شریف_کاظمی
+
+آقا محسن شریف‌کاظمی فقط مدیر دبیرستان نیکنام فردیس…</h3><p>
+شهید راه آزادی #محسن_شریف_کاظمی
+
+آقا محسن شریف‌کاظمی فقط مدیر دبیرستان نیکنام فردیس نبود؛ او تبلور زندگی و عشق به ایران برای شاگردانش بود.
+معلمی که کلاسش با مهربانی شروع می‌شد و با رویای فردایی روشن تمام، و درس شرف و انسان‌دوستی را فراتر از کتاب‌ها آموخت.
+
+در ۱۸ دی‌ماه، وقتی…</p><a class="more" href="https://www.instagram.com/reel/DcEcrn4qdK8/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18088311137213601.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-14</div><h3>
+
+سناریوی تکراری گرانی بنزین!
+این چرخه را حفظ شده‌ایم:
+۱. شوک خبری: انتشار خبر «بنزین ۸۷…</h3><p>
+
+سناریوی تکراری گرانی بنزین!
+این چرخه را حفظ شده‌ایم:
+۱. شوک خبری: انتشار خبر «بنزین ۸۷ هزار تومانی در کرمان»
+۲. تکذیب نمایشی: واکنش که بالا گرفت، سریع تکذیب می‌کنند تا جامعه آرام شود.
+۳. عادی‌سازی رسانه‌ای: کارشناسان از «قیمت واقعی سوخت» و «لزوم اصلاح» می‌گویند تا ذهن مردم…</p><a class="more" href="https://www.instagram.com/reel/DcB_lHwqTv0/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18140948857604718.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-14</div><h3>کرج، گوهردشت
+
+شهید راه آزادی، #ایلیا_ولی‌پور
+
+او فقط ۱۸ سال داشت؛ تک‌فرزند و تمامِ امیدِ…</h3><p>کرج، گوهردشت
+
+شهید راه آزادی، #ایلیا_ولی‌پور
+
+او فقط ۱۸ سال داشت؛ تک‌فرزند و تمامِ امیدِ پدر و مادرش.
+
+۱۸ دی‌ماه در اعتراضات #گوهردشت #کرج، ایلیا با شجاعتی مثال‌زدنی در برابر سرکوب ایستاد. ابتدا با شــــ....لیک گل**وله‌های ساچمه‌ای به قفسه سینه‌اش مجروح شد و به زمین افتاد، اما…</p><a class="more" href="https://www.instagram.com/reel/DcBEPPLK4vu/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18260741560305324.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-13</div><h3>
+مدیرعامل توانیر: ۶ کشور همسایه یکجا کمتر از ما برق مصرف میکنن!!
+
+شما قبول دارید؟ مصرف ما…</h3><p>
+مدیرعامل توانیر: ۶ کشور همسایه یکجا کمتر از ما برق مصرف میکنن!!
+
+شما قبول دارید؟ مصرف ما زیاده؟
+
+👇 نظرت رو کامنت کن
+---------------
+#صدای_کرج 
+#قطعی_برق 
+#برق_کرج 
+#توانیر</p><a class="more" href="https://www.instagram.com/reel/Db_R_cKKs11/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18027025748677273.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-13</div><h3>
+دولت امارات چندین میلیارد دلار دیگر از دارایی‌های مسدود شده ایران در بانک‌های اماراتی،…</h3><p>
+دولت امارات چندین میلیارد دلار دیگر از دارایی‌های مسدود شده ایران در بانک‌های اماراتی، از جمله حداقل ۱.۵ تن طلا به ارزش تقریبی ۲۱۲ میلیون دلار، را آزاد کرده است.
+
+این دارایی‌ها در ۱۱ و ۱۲ آگوست ۲۰۲۶ با هواپیمای بوئینگ ۷۳۷ امارات ، از ابوظبی به فرودگاه بین‌المللی مهرآباد تهران و…</p><a class="more" href="https://www.instagram.com/reel/Db-Glv0qHit/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18113440555895037.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-12</div><h3>
+
+شهید راه آزادی امیر بیاتی
+
+امیر بیاتی، ۳۵ ساله، مهندس مکانیک و مسلط به سه زبان انگلیسی،…</h3><p>
+
+شهید راه آزادی امیر بیاتی
+
+امیر بیاتی، ۳۵ ساله، مهندس مکانیک و مسلط به سه زبان انگلیسی، آلمانی و فرانسوی بود. جوانی پرتلاش که سال‌ها برای ساختن آینده‌ای بهتر درس خواند، زحمت کشید و سرانجام ویزای تحصیلی کارشناسی ارشد خود را از دانشگاهی در کانادا دریافت کرد.
+
+او می‌توانست راهی…</p><a class="more" href="https://www.instagram.com/reel/Db8hTyNKzGs/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17976444309093438.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-12</div><h3>
+
+شهید راه آزادی #ساینا_نظام‌دوست
+
+ساینا نظام‌دوست، جوان ۲۵ساله و پر از شور زندگی اهل…</h3><p>
+
+شهید راه آزادی #ساینا_نظام‌دوست
+
+ساینا نظام‌دوست، جوان ۲۵ساله و پر از شور زندگی اهل #کرج، یکی دیگر از چهره‌های تابناک مسیر آزادی بود. او که با هزاران امید و آرزو قدم در راه حق‌طلبی گذاشت، هدف شـ..لیک مستقیم گل*وله ج*نگی قرار گرفت و پیکر پاکش بر اثر خون‌ریزی شدید، در آغوش گرم و…</p><a class="more" href="https://www.instagram.com/reel/Db7cJFuqVbt/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17956961211195728.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-11</div><h3>
+
+کرج به سوگ ستاره‌ای نشست که خیلی زود خاموش شد، اما نورش ماندگار شد... ✨
+
+#مهدی_جوزی ،…</h3><p>
+
+کرج به سوگ ستاره‌ای نشست که خیلی زود خاموش شد، اما نورش ماندگار شد... ✨
+
+#مهدی_جوزی ، فقط ۲۰ سال داشت...
+اما مردانگی‌اش به وسعت یک تاریخ بود. 
+بعد از رفتن پدر، شد ستون خونه، شد تکیه‌گاه مادر و خواهرش، شد نان‌آور خانه‌ای که با غیرت می‌چرخید. 💔
+
+توی زمین فوتبال قهرمان بود، توی…</p><a class="more" href="https://www.instagram.com/reel/Db6OlgkKKpZ/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/17980762518111632.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-10</div><h3>
+سودا اکرمی‌فرد؛ ۱۶ ساله، از مارلیک کرج
+دانش‌آموز بود اما درس ایستادگی را به تاریخ…</h3><p>
+سودا اکرمی‌فرد؛ ۱۶ ساله، از مارلیک کرج
+دانش‌آموز بود اما درس ایستادگی را به تاریخ آموخت.
+در شامگاه جمعه ۱۹ دی ماه ۱۴۰۴، در ملارد کرج، بر سر پیمان خود با آزادی ایستاد و آن را با خون خویش امضا کرد.
+سودا رفت تا بماند. تا نامش سندی باشد بر حقانیت راه آزادی و بهای آن.
+او قهرمان…</p><a class="more" href="https://www.instagram.com/reel/Db3z082KOsN/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article><article class="card"><img class="thumb" loading="lazy" src="assets/18154073845498980.jpg" alt="تصویر پست صدای کرج"><div class="cardbody"><div class="meta">اینستاگرام صدای کرج · 2026-08-09</div><h3>
+شکاف درهسته قدرت
+مجتبی خامنه ای و ۳پا
+درمقابل دولت
+افشاگری پزشکیان: مذاکره با آمریکا با…</h3><p>
+شکاف درهسته قدرت
+مجتبی خامنه ای و ۳پا
+درمقابل دولت
+افشاگری پزشکیان: مذاکره با آمریکا با مجوز خامنه‌ای بود
+تلویزیون رژیم ۱۶ مرداد اعلام کرد: مصاحبه توسط دفتر ریاست‌جمهوری تهیه شده.
+پزشکیان: مذاکره و تفاهم با اروپا و آمریکا با مجوز و هماهنگی کامل رهبر انقلاب بوده. صداوسیما میگه…</p><a class="more" href="https://www.instagram.com/reel/Db0tJ8SKGkQ/" target="_blank" rel="noopener">مشاهده پست اصلی در اینستاگرام ←</a></div></article></div></section><aside class="side"><div class="sidebox"><h3>درباره صدای کرج</h3><p>صدای مردم کرج؛ اخبار کرج، مارلیک، محمدشهر، ملارد و هشتگرد.</p><p><a href="https://www.instagram.com/seday.ekaraj/" target="_blank" rel="noopener">@seday.ekaraj</a></p></div></aside></div></main><footer id="about"><div class="container">© تمامی حقوق برای پایگاه خبری «صدای کرج» محفوظ است.</div></footer></body></html>

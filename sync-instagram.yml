@@ -1,0 +1,41 @@
+name: Sync Instagram feed
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sync recent posts
+        env:
+          TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+        run: |
+          python3 - <<'PY'
+          import json,os,urllib.request,urllib.parse,hashlib
+          from pathlib import Path
+          token=os.environ['TOKEN']; uid=os.environ['USER_ID']
+          url='https://graph.facebook.com/v23.0/'+uid+'/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=50&access_token='+urllib.parse.quote(token)
+          data=json.load(urllib.request.urlopen(url))['data']
+          path=Path('posts.json'); old=json.load(open(path)) if path.exists() else {'account':'@seday.ekaraj','posts':[]}
+          by={p['id']:p for p in old.get('posts',[])}
+          Path('assets').mkdir(exist_ok=True)
+          for p in data:
+            p['local_image']='assets/'+p['id']+'.jpg'
+            if p.get('thumbnail_url') and not Path(p['local_image']).exists():
+              try: urllib.request.urlretrieve(p['thumbnail_url'],p['local_image'])
+              except Exception: pass
+            by[p['id']]=p
+          posts=sorted(by.values(),key=lambda x:x.get('timestamp',''),reverse=True)
+          json.dump({'account':'@seday.ekaraj','updated_at':__import__('datetime').date.today().isoformat(),'posts':posts},open(path,'w'),ensure_ascii=False,indent=2)
+          PY
+      - name: Commit updates
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add posts.json assets/
+          git diff --cached --quiet || (git commit -m "Sync Instagram posts" && git push)
