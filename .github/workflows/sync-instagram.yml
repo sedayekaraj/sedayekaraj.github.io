@@ -16,22 +16,34 @@ jobs:
           USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
         run: |
           python3 - <<'PY'
-          import json,os,urllib.request,urllib.parse,hashlib
+          import json, os, urllib.request, urllib.parse, urllib.error
           from pathlib import Path
-          token=os.environ['TOKEN']; uid=os.environ['USER_ID']
-          url='https://graph.facebook.com/v23.0/'+uid+'/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=50&access_token='+urllib.parse.quote(token)
-          data=json.load(urllib.request.urlopen(url))['data']
-          path=Path('posts.json'); old=json.load(open(path)) if path.exists() else {'account':'@seday.ekaraj','posts':[]}
+          token=os.environ['TOKEN'].strip(); uid=os.environ['USER_ID'].strip()
+          url=f"https://graph.facebook.com/v20.0/{uid}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=50&access_token={urllib.parse.quote(token)}"
+          print(f"Testing UID {uid[:5]}... token len {len(token)}")
+          try:
+              with urllib.request.urlopen(url) as r:
+                  j=json.loads(r.read().decode())
+                  print(f"Got {len(j.get('data',[]))} posts")
+                  if 'error' in j:
+                      print(j['error']); raise SystemExit(1)
+                  data=j.get('data',[])
+          except urllib.error.HTTPError as e:
+              body=e.read().decode()
+              print(f"\n=== HTTP {e.code} ===\n{body}\n=== END ===\n")
+              raise
+          path=Path('posts.json')
+          old=json.load(open(path)) if path.exists() else {'account':'@seday.ekaraj','posts':[]}
           by={p['id']:p for p in old.get('posts',[])}
           Path('assets').mkdir(exist_ok=True)
           for p in data:
-            p['local_image']='assets/'+p['id']+'.jpg'
-            if p.get('thumbnail_url') and not Path(p['local_image']).exists():
-              try: urllib.request.urlretrieve(p['thumbnail_url'],p['local_image'])
-              except Exception: pass
-            by[p['id']]=p
-          posts=sorted(by.values(),key=lambda x:x.get('timestamp',''),reverse=True)
-          json.dump({'account':'@seday.ekaraj','updated_at':__import__('datetime').date.today().isoformat(),'posts':posts},open(path,'w'),ensure_ascii=False,indent=2)
+              p['local_image']=f"assets/{p['id']}.jpg"
+              if p.get('thumbnail_url') and not Path(p['local_image']).exists():
+                  try: urllib.request.urlretrieve(p['thumbnail_url'], p['local_image'])
+                  except: pass
+              by[p['id']]=p
+          posts=sorted(by.values(), key=lambda x:x.get('timestamp',''), reverse=True)
+          json.dump({'account':'@seday.ekaraj','updated_at':__import__('datetime').date.today().isoformat(),'posts':posts}, open(path,'w'), ensure_ascii=False, indent=2)
           PY
       - name: Commit updates
         run: |
